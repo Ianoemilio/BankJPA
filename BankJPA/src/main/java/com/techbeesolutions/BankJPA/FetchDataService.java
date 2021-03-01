@@ -1,21 +1,19 @@
 package com.techbeesolutions.BankJPA;
 
+
+import org.apache.catalina.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Component
-public interface FetchDataService extends JpaRepository<BankUserModel, Integer> {
+public interface fetchDataService extends JpaRepository<UserModel, String>  {
 
     @Override
-    List<BankUserModel> findAll();
+    List<UserModel> findAll();
 
-//    List<BankUserModel> findByANum(int num);
+    String deleteById(int id);
 
-
-
+    UserModel findById(int id);
 }

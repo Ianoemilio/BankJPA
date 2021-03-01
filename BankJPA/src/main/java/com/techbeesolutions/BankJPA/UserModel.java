@@ -1,76 +1,67 @@
 package com.techbeesolutions.BankJPA;
 
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userTable")
+@Table(name = "usertable")
 public class UserModel {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
-    @Column(name = "Balance")
-    private Integer Balance;
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    @Column(name = "FirstName")
-    private String FirstName;
-
-    @Column(name = "LastName")
-    private String LastName;
-
-    @Column(name = "Email")
-    private String Email;
-
-    @Column(name = "AccountNumber")
-    private Integer AccountNumber;
-
-    @Column(name = "PhoneNumber")
-    private String PhoneNumber;
+    private int balance;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private int accountnumber;
+    private String phonenumber;
 
     public Integer getBalance() {
-        return Balance;
+        return balance;
     }
 
     public void setBalance(Integer balance) {
-        this.Balance = balance;
+        this.balance = balance;
     }
 
-    public String getFirstName() {
-        return FirstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return LastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
-    public Integer getAccountNumber() {
-        return AccountNumber;
+    public Integer getAccountnumber() {
+        return accountnumber;
     }
 
-    public void setAccountNumber(Integer accountNumber) {
-        AccountNumber = accountNumber;
+    public void setAccountnumber(Integer accountnumber) {
+        this.accountnumber = accountnumber;
     }
 
-    public String getPhoneNumber() {
-        return PhoneNumber;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 }
