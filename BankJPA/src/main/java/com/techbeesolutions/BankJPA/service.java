@@ -25,8 +25,7 @@ public class service {
     }
 
     public UserModel updateUser(UserModel user) {
-        int x = user.getAccountnumber();
-        UserModel existingUser = repository.findById(x);
+        UserModel existingUser = repository.findById(user.getAccountnumber());
         existingUser.setFirstname(user.getFirstname());
         return repository.save(existingUser);
     }
