@@ -6,14 +6,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface fetchDataService extends JpaRepository<UserModel, String>  {
+public interface fetchDataService extends JpaRepository<UserModel, Integer>  {
 
     @Override
     List<UserModel> findAll();
 
-    String deleteById(int id);
+    Optional<UserModel> findById(int id);
 
-    UserModel findById(int id);
+    UserModel deleteById(int id);
+//
+//    UserModel findById(int id);
 }

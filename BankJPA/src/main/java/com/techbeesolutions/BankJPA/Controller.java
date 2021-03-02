@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -12,26 +13,32 @@ public class Controller {
 
 
     @Autowired
-    protected service FetchData;
+    private fetchDataService FetchData;
 
     @GetMapping(path = "getdata")
     public List<UserModel> getAllUsers() {
-        return FetchData.getAll();
+        return FetchData.findAll();
+    }
+
+
+    @GetMapping(path = "/{accountnumber}")
+    public Optional<UserModel> find(@PathVariable("accountnumber") int id) {
+        return FetchData.findById(id);
     }
 
     @PostMapping(path = "postdata")
-    public UserModel load(@RequestBody UserModel user) {
-        return FetchData.addUser(user);
+    public UserModel addUser(@RequestBody UserModel user) {
+        return FetchData.save(user);
     }
 
-    @DeleteMapping(path = "removedata")
-    public String removeUser(@PathVariable int id) {
-        return FetchData.deleteUser(id);
+    @DeleteMapping(path = "removedata/{accountnumber}")
+    public void removeUser(@PathVariable("accountnumber") int id) {
+        FetchData.deleteById(id);
     }
 
-    @PutMapping(path = "updatedata")
-    public UserModel updateUser(@RequestBody UserModel user) {
-        return FetchData.updateUser(user);
+    @PutMapping(path = "updatedata/{accountnumber}")
+    public UserModel updateUser(@PathVariable("accountnumber") int id, @RequestBody UserModel user) {
+        return FetchData.save(user);
     }
 
 }

@@ -9,12 +9,22 @@ public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private int balance;
-    private String firstname;
-    private String lastname;
-    private String email;
+    @Column(name = "accountnumber")
     private int accountnumber;
+
+    @Column(name = "balance")
+    private int balance;
+
+    @Column(name = "firstname")
+    private String firstname;
+
+    @Column(name = "lastname")
+    private String lastname;
+
+    @Column(name = "email")
+    private String email;
+
+   @Column(name = "phonenumber")
     private String phonenumber;
 
     public Integer getBalance() {
